@@ -1,7 +1,6 @@
 package blackjack.view;
 
 import blackjack.Cards;
-import java.util.StringJoiner;
 
 public class OutputView {
     private static final String NEW_LINE = "\n";
@@ -10,17 +9,15 @@ public class OutputView {
     private static final String RIGHT_BRACKET = "]";
     private static final int WIN = 1;
     private static final int DRAW = 0;
-    private static final int LOSE = -1;
 
     public static void printGameStart() {
         System.out.println("간단 카드 게임을 시작합니다.");
     }
 
     public static void printGameOver() {
-        StringBuilder message = new StringBuilder();
-        message.append("게임을 종료합니다.")
-                .append(NEW_LINE)
-                .append("플레이해주셔서 감사합니다.");
+        String message = "게임을 종료합니다."
+                + NEW_LINE
+                + "플레이해주셔서 감사합니다.";
         System.out.println(message);
     }
 
@@ -56,11 +53,10 @@ public class OutputView {
     }
 
     public static void printHistory(long winCount, long drawCount, long loseCount) {
-        StringBuilder message = new StringBuilder();
-        message.append("현재 전적: ")
-                .append(winCount).append("승 ")
-                .append(drawCount).append("무 ")
-                .append(loseCount).append("패");
+        String message = "현재 전적: "
+                + winCount + "승 "
+                + drawCount + "무 "
+                + loseCount + "패";
         System.out.println(message);
     }
 }

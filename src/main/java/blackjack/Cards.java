@@ -7,7 +7,7 @@ public class Cards {
     private static final int WIN = 1;
     private static final int DRAW = 0;
     private static final int LOSE = -1;
-    private List<Card> cards = new ArrayList<>();
+    private final List<Card> cards = new ArrayList<>();
 
     public Cards() {
     }
