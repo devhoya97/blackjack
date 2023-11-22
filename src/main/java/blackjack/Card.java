@@ -15,4 +15,13 @@ public class Card {
         Random random = new Random();
         return random.nextInt(MAX_NUMBER) + MIN_NUMBER;
     }
+
+    public int compareNumber(Card card) {
+        return Integer.compare(number, card.number);
+    }
+
+    // view를 위한 getter
+    public int getNumber() {
+        return number;
+    }
 }
