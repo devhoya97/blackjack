@@ -10,20 +10,14 @@ public class Application {
 
     public static void main(String[] args) {
         OutputView.printGameStart();
+        Cards playerCards = new Cards();
+        Cards dealerCards = new Cards();
         while (true) {
             Card playerCard = new Card();
+            playerCards.addCard(playerCard);
             Card dealerCard = new Card();
-            System.out.println("playerNumber: "+playerCard.getNumber());
-            System.out.println("dealerNumber: "+dealerCard.getNumber());
-            if (playerCard.compareNumber(dealerCard) == WIN) {
-                System.out.println("Win!");
-            }
-            if (playerCard.compareNumber(dealerCard) == LOSE) {
-                System.out.println("Lose!");
-            }
-            if (playerCard.compareNumber(dealerCard) == DRAW) {
-                System.out.println("Draw!");
-            }
+            dealerCards.addCard(dealerCard);
+            OutputView.printResult(playerCards, dealerCards, playerCard.compareNumber(dealerCard));
             if (!(InputView.getMoreGameOrNot())) {
                 OutputView.printGameOver();
                 return;
