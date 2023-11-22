@@ -18,6 +18,7 @@ public class Application {
             Card dealerCard = new Card();
             dealerCards.addCard(dealerCard);
             OutputView.printResult(playerCards, dealerCards, playerCard.compareNumber(dealerCard));
+            OutputView.printHistory(playerCards.getWinCount(), playerCards.getDrawCount(), playerCards.getLoseCount());
             if (!(InputView.getMoreGameOrNot())) {
                 OutputView.printGameOver();
                 return;

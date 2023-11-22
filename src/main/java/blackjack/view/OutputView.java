@@ -35,7 +35,7 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void addCardsMessage(Cards cards, StringBuilder message) {
+    private static void addCardsMessage(Cards cards, StringBuilder message) {
         cards.getCardNumbers()
                 .stream()
                 .map(number -> LEFT_BRACKET + String.format("%2d", number) + RIGHT_BRACKET + SPACE)
@@ -43,15 +43,24 @@ public class OutputView {
         message.append(NEW_LINE);
     }
 
-    public static void addWinningResult(int winningResult, StringBuilder message) {
+    private static void addWinningResult(int winningResult, StringBuilder message) {
         if (winningResult == WIN) {
-            message.append("당신이 이겼습니다.").append(NEW_LINE);
+            message.append("당신이 이겼습니다.");
             return;
         }
         if (winningResult == DRAW) {
-            message.append("비겼습니다.").append(NEW_LINE);
+            message.append("비겼습니다.");
             return;
         }
-        message.append("딜러가 이겼습니다.").append(NEW_LINE);
+        message.append("딜러가 이겼습니다.");
+    }
+
+    public static void printHistory(long winCount, long drawCount, long loseCount) {
+        StringBuilder message = new StringBuilder();
+        message.append("현재 전적: ")
+                .append(winCount).append("승 ")
+                .append(drawCount).append("무 ")
+                .append(loseCount).append("패");
+        System.out.println(message);
     }
 }
