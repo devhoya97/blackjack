@@ -6,10 +6,12 @@ public class DealerCards extends Cards{
         super();
     }
 
-    public void addCard() {
+    public boolean addCard() {
         Card card = new Card();
         if (sum() <= MAX_CARD_SUM_ALLOWED) {
             cards.add(card);
+            return true;
         }
+        return false;
     }
 }

@@ -4,30 +4,49 @@ import blackjack.view.InputView;
 import blackjack.view.OutputView;
 
 public class Application {
+    private static final int PLAYER_WIN = 1;
+    private static final int DRAW = 0;
+    private static final int PLAYER_LOSE = -1;
+
     public static void main(String[] args) {
         Asset playerAsset = new Asset();
-//        OutputView.printGameStart(playerAsset);
-//        BetMoney betMoney = InputView.getBetMoney(playerAsset);
-        int gameCount = 1;
-        playRound(gameCount, playerAsset);
-//        if (!playerAsset.canPlayMore()) {
-//            return;
-//        }
-//        InputView.getMoreCardOrNot();
-    }
-
-    public static void playRound(int gameCount, Asset playerAsset) {
-        Cards playerCards = new Cards();
+        Dealer dealer = new Dealer(playerAsset);
+        OutputView.printGameStart(playerAsset);
         while (true) {
-            playerCards.addCard(new Card());
-            OutputView.printMiddleResult(playerCards, gameCount);
-            if (playerCards.isTooMuch()) {
-                OutputView.printLose(playerAsset.getRemainedAmount());
-                return;
-            }
-            if (!InputView.getMoreCardOrNot()) {
+            BetMoney betMoney = InputView.getBetMoney(playerAsset);
+            int gameCount = 1;
+            int winningResult = playRound(gameCount, playerAsset, dealer, betMoney);
+            OutputView.printRoundResult(winningResult, playerAsset.getRemainedAmount());
+            if (!playerAsset.canPlayMore() || !InputView.getMoreGameOrNot()) {
                 return;
             }
         }
+    }
+
+    public static int playRound(int gameCount, Asset playerAsset, Dealer dealer, BetMoney betMoney) {
+        Cards playerCards = new Cards();
+        while (true) {
+            playerCards.addCard(new Card());
+            OutputView.printPlayerCards(playerCards, gameCount);
+            if (playerCards.isTooMuch()) {
+                betMoney.decreaseByLose(playerAsset);
+                return PLAYER_LOSE;
+            }
+            if (!InputView.getMoreCardOrNot()) {
+                DealerCards dealerCards = getDealerCards();
+                OutputView.printDealerCards(dealerCards);
+                return dealer.reflectResult(playerCards, dealerCards, betMoney);
+            }
+        }
+    }
+
+    private static DealerCards getDealerCards() {
+        DealerCards dealerCards = new DealerCards();
+        while (true) {
+            if (!dealerCards.addCard()) {
+                break;
+            }
+        }
+        return dealerCards;
     }
 }

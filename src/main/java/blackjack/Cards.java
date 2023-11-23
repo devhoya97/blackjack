@@ -21,6 +21,9 @@ public class Cards {
         if (isTooMuch()) {
             return PLAYER_LOSE;
         }
+        if (otherCards.isTooMuch()) {
+            return PLAYER_WIN;
+        }
         return Integer.compare(sum(), otherCards.sum());
     }
 
