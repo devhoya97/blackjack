@@ -14,4 +14,8 @@ public class BetMoney {
     public void increaseByWinning(Asset playerAsset) {
         playerAsset.increase(betMoney);
     }
+
+    public void increaseByBlackJack(Asset playerAsset) {
+        playerAsset.increase(betMoney * 2);
+    }
 }
