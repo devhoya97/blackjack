@@ -20,6 +20,10 @@ public class Asset {
         this.money -= money;
     }
 
+    public boolean canPlayMore() {
+        return money > 0;
+    }
+
     // view를 위한 getter
     public int getRemainedAmount() {
         return money;
