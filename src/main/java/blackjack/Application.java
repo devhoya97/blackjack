@@ -18,6 +18,8 @@ public class Application {
             int winningResult = playRound(gameCount, playerAsset, dealer, betMoney);
             OutputView.printRoundResult(winningResult, playerAsset.getRemainedAmount());
             if (!playerAsset.canPlayMore() || !InputView.getMoreGameOrNot()) {
+                OutputView.printGameOver(dealer.getWinCount(), dealer.getDrawCount(), dealer.getLoseCount(),
+                        playerAsset.getRemainedAmount());
                 return;
             }
         }

@@ -60,7 +60,7 @@ public class OutputView {
     }
 
     public static void printGameOver(long winCount, long drawCount, long loseCount, int remainedAmount) {
-        String message =
+        String message = NEW_LINE +
                 winCount + "승 "
                 + drawCount + "무 "
                 + loseCount + "패로 "
