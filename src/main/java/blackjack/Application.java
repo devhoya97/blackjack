@@ -14,6 +14,6 @@ public class Application {
         if (!playerAsset.canPlayMore()) {
             return;
         }
-        System.out.println("게임이 끝나지 않았음.");
+        InputView.getMoreCardOrNot();
     }
 }

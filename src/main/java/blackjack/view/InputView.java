@@ -17,16 +17,25 @@ public class InputView {
             }
         }
     }
+
+    public static boolean getMoreCardOrNot() {
+        while (true) {
+            System.out.println("카드를 더 받겠습니까? (Y / N) ");
+            String input = console.nextLine().toUpperCase();
+            if (input.equals("Y") || input.equals("N")) {
+                return input.equals("Y");
+            }
+            System.out.println("잘못 입력하셨습니다.");
+        }
+    }
     public static boolean getMoreGameOrNot() {
         while (true) {
             System.out.print("한 게임 더 하시겠습니까? (Y / N) ");
-            String input = console.nextLine();
-            char yesOrNo = Character.toUpperCase(input.charAt(0));
-            if ((input.length() != 1) || (yesOrNo != 'Y' && yesOrNo != 'N')) {
-                System.out.println("잘못 입력하셨습니다.");
-                continue;
+            String input = console.nextLine().toUpperCase();
+            if (input.equals("Y") || input.equals("N")) {
+                return input.equals("Y");
             }
-            return yesOrNo == 'Y';
+            System.out.println("잘못 입력하셨습니다.");
         }
     }
 }
