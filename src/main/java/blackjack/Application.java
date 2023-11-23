@@ -8,5 +8,7 @@ public class Application {
         Asset playerAsset = new Asset();
         OutputView.printGameStart(playerAsset);
         BetMoney betMoney = InputView.getBetMoney(playerAsset);
+        betMoney.increaseByWinning(playerAsset);
+        System.out.println("playerAsset: " + playerAsset.getRemainedAmount());
     }
 }

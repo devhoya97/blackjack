@@ -2,12 +2,16 @@ package blackjack;
 
 public class BetMoney {
     private static final int MIN_UNIT = 100;
-    private final int money;
+    private final int betMoney;
 
-    public BetMoney(int money, Asset playerAsset) {
-        if ((money % MIN_UNIT != 0) || !playerAsset.isBetAmountValid(money)) {
+    public BetMoney(int betMoney, Asset playerAsset) {
+        if ((betMoney % MIN_UNIT != 0) || !playerAsset.isBetAmountValid(betMoney)) {
             throw new IllegalArgumentException();
         }
-        this.money = money;
+        this.betMoney = betMoney;
+    }
+
+    public void increaseByWinning(Asset playerAsset) {
+        playerAsset.increase(betMoney * 2);
     }
 }

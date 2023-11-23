@@ -2,7 +2,7 @@ package blackjack;
 
 public class Asset {
     private static final int INITIAL_MONEY = 1000;
-    private final int money;
+    private int money;
 
     public Asset() {
         this.money = INITIAL_MONEY;
@@ -13,11 +13,11 @@ public class Asset {
     }
 
     public void increase(int money) {
-
+        this.money += money;
     }
 
     public void decrease(int money) {
-
+        this.money -= money;
     }
 
     // view를 위한 getter
