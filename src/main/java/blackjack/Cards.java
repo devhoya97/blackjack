@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cards {
-    private static final int WIN = 1;
-    private static final int DRAW = 0;
-    private static final int LOSE = -1;
-    private final List<Card> cards = new ArrayList<>();
+    protected static final int PLAYER_WIN = 1;
+    protected static final int DRAW = 0;
+    protected static final int PLAYER_LOSE = -1;
+    protected static final int BLACK_JACK = 21;
+    protected final List<Card> cards = new ArrayList<>();
 
     public Cards() {
     }
@@ -15,7 +16,22 @@ public class Cards {
     public void addCard(Card card) {
         cards.add(card);
     }
-    
+
+    public int chooseWinner(Cards otherCards) {
+        if (isTooMuch()) {
+            return PLAYER_LOSE;
+        }
+        return Integer.compare(sum(), otherCards.sum());
+    }
+
+    public boolean isBlackJack() {
+        return sum() == BLACK_JACK;
+    }
+
+    public boolean isTooMuch() {
+        return sum() > BLACK_JACK;
+    }
+
     public int sum() {
         return cards.stream()
                 .mapToInt(Card::getNumber)
@@ -31,7 +47,7 @@ public class Cards {
     public long getWinCount() {
         return cards.stream()
                 .mapToInt(Card::getCompareResult)
-                .filter(compareResult -> compareResult == WIN)
+                .filter(compareResult -> compareResult == PLAYER_WIN)
                 .count();
     }
 
@@ -45,7 +61,7 @@ public class Cards {
     public long getLoseCount() {
         return cards.stream()
                 .mapToInt(Card::getCompareResult)
-                .filter(compareResult -> compareResult == LOSE)
+                .filter(compareResult -> compareResult == PLAYER_LOSE)
                 .count();
     }
 }
