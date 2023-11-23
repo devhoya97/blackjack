@@ -12,6 +12,10 @@ public class Card {
         this.number = createRandomNumber();
     }
 
+    public Card(int number) {
+        this.number = number;
+    }
+
     private int createRandomNumber() {
         Random random = new Random();
         return random.nextInt(MAX_NUMBER) + MIN_NUMBER;
