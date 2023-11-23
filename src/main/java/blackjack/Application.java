@@ -34,7 +34,7 @@ public class Application {
             playerCards.addCard(cardDeck.pop());
             OutputView.printPlayerCards(playerCards, gameCount);
             if (playerCards.isTooMuch()) {
-                betMoney.decreaseByLose(playerAsset);
+                dealer.reflectLose(betMoney);
                 return PLAYER_LOSE;
             }
             if (!InputView.getMoreCardOrNot()) {

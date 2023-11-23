@@ -38,6 +38,11 @@ public class Dealer {
         return PLAYER_LOSE;
     }
 
+    public void reflectLose(BetMoney betMoney) {
+        loseCount++;
+        betMoney.decreaseByLose(playerAsset);
+    }
+
     //view를 위한 getter
     public int getWinCount() {
         return winCount;
