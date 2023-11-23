@@ -4,17 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cards {
-    protected static final int PLAYER_WIN = 1;
-    protected static final int DRAW = 0;
-    protected static final int PLAYER_LOSE = -1;
-    protected static final int BLACK_JACK = 21;
-    protected final List<Card> cards = new ArrayList<>();
+    private static final int DEALER_CARD_MAX_ALLOWED = 16;
+    private static final int PLAYER_WIN = 1;
+    private static final int DRAW = 0;
+    private static final int PLAYER_LOSE = -1;
+    private static final int BLACK_JACK = 21;
+    private final List<Card> cards = new ArrayList<>();
 
     public Cards() {
     }
 
     public void addCard(Card card) {
         cards.add(card);
+    }
+
+    public boolean addDealerCard(Card card) {
+        if (sum() <= DEALER_CARD_MAX_ALLOWED) {
+            cards.add(card);
+            return true;
+        }
+        return false;
     }
 
     public int chooseWinner(Cards otherCards) {
