@@ -26,9 +26,9 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void printMiddleResult(Cards playerCards) {
+    public static void printMiddleResult(Cards playerCards, int gameCount) {
         StringBuilder message = new StringBuilder();
-        message.append(NEW_LINE).append("Game ").append(playerCards.getMatchCount()).append(NEW_LINE)
+        message.append(NEW_LINE).append("Game ").append(gameCount).append(NEW_LINE)
                 .append("플레이어: ");
         addCardsMessage(playerCards, message);
         message.append("총합: ").append(playerCards.sum());

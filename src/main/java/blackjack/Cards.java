@@ -15,11 +15,7 @@ public class Cards {
     public void addCard(Card card) {
         cards.add(card);
     }
-
-    public int getMatchCount() {
-        return cards.size();
-    }
-
+    
     public int sum() {
         return cards.stream()
                 .mapToInt(Card::getNumber)

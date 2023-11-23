@@ -8,6 +8,7 @@ public class Application {
 //        Asset playerAsset = new Asset();
 //        OutputView.printGameStart(playerAsset);
 //        BetMoney betMoney = InputView.getBetMoney(playerAsset);
+        int gameCount = 1;
         CardDeck cardDeck = new CardDeck();
         Cards playerCards = new Cards();
         playerCards.addCard(cardDeck.pop());
@@ -16,7 +17,7 @@ public class Application {
         System.out.println("cardDeck size: " + cardDeck.size());
         playerCards.addCard(cardDeck.pop());
         System.out.println("cardDeck size: " + cardDeck.size());
-        OutputView.printMiddleResult(playerCards);
+        OutputView.printMiddleResult(playerCards, gameCount);
 //        if (!playerAsset.canPlayMore()) {
 //            return;
 //        }
