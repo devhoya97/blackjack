@@ -1,5 +1,6 @@
 package blackjack.view;
 
+import blackjack.Asset;
 import blackjack.Cards;
 
 public class OutputView {
@@ -10,8 +11,12 @@ public class OutputView {
     private static final int WIN = 1;
     private static final int DRAW = 0;
 
-    public static void printGameStart() {
-        System.out.println("간단 카드 게임을 시작합니다.");
+    public static void printGameStart(Asset playerAsset) {
+        String message = "간단 카드 게임을 시작합니다."
+                + NEW_LINE
+                + "현재 재산: "
+                + playerAsset.getRemainedAmount();
+        System.out.println(message);
     }
 
     public static void printGameOver() {

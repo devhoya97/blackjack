@@ -8,7 +8,7 @@ public class InputView {
     private static final Scanner console = new Scanner(System.in);
     public static BetMoney getBetMoney(Asset playerAsset) {
         while (true) {
-            System.out.println("얼마를 거시겠습니까? ");
+            System.out.print("얼마를 거시겠습니까? ");
             String input = console.nextLine();
             try {
                 return new BetMoney(Integer.parseInt(input), playerAsset);

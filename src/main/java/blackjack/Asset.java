@@ -20,4 +20,8 @@ public class Asset {
 
     }
 
+    // view를 위한 getter
+    public int getRemainedAmount() {
+        return money;
+    }
 }
