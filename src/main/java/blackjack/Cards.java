@@ -20,6 +20,12 @@ public class Cards {
         return cards.size();
     }
 
+    public int sum() {
+        return cards.stream()
+                .mapToInt(Card::getNumber)
+                .sum();
+    }
+
     public List<Integer> getCardNumbers() {
         return cards.stream()
                 .map(Card::getNumber)
