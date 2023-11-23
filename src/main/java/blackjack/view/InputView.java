@@ -20,7 +20,7 @@ public class InputView {
 
     public static boolean getMoreCardOrNot() {
         while (true) {
-            System.out.println("카드를 더 받겠습니까? (Y / N) ");
+            System.out.print("카드를 더 받겠습니까? (Y / N) ");
             String input = console.nextLine().toUpperCase();
             if (input.equals("Y") || input.equals("N")) {
                 return input.equals("Y");

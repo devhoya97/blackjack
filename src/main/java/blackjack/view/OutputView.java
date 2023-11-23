@@ -35,6 +35,10 @@ public class OutputView {
         System.out.println(message);
     }
 
+    public static void printLose(int remainedAmount) {
+        System.out.printf("당신의 패배입니다. 현재 재산: %d\n", remainedAmount);
+    }
+
     private static void addCardsMessage(Cards cards, StringBuilder message) {
         cards.getCardNumbers()
                 .stream()
